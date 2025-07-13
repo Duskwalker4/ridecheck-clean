@@ -1,11 +1,63 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <title>RideCheck Plus</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: #f1f1f1;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #00ffcc;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+    }
+    input {
+      width: 200px;
+    }
+    button {
+      background-color: #00ffcc;
+      color: #1a1a1a;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00cc99;
+    }
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+      background-color: #333;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #555;
+    }
+    th {
+      background-color: #00ffcc;
+      color: #1a1a1a;
+    }
+    #status {
+      margin-top: 20px;
+      color: #ff8080;
+    }
+    #logo {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
+  <img id="logo" src="https://raw.githubusercontent.com/markusgabmaier/assets/main/ridecheck-logo.png" alt="RideCheck Logo">
   <h1>RideCheck – Training Tracker</h1>
   <div id="auth">
     <input id="email" placeholder="E-Mail" /><br/>
@@ -90,7 +142,7 @@
       const { data: eintraege } = await supabase.from("training").select("*");
       const { data: ziele } = await supabase.from("ziele").select("*");
 
-      let html = "<table border='1'><tr><th>User</th><th>Gewicht</th><th>Strecke</th><th>Schwierigk.</th><th>Zielgewicht</th></tr>";
+      let html = "<table><tr><th>User</th><th>Gewicht</th><th>Strecke</th><th>Schwierigk.</th><th>Zielgewicht</th></tr>";
       for (let eintrag of eintraege) {
         const ziel = ziele.find(z => z.user_id === eintrag.user_id);
         html += `<tr>
