@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>RideCheck Plus</title>
+</head>
+<body>
+  <h1>RideCheck – Training Tracker</h1>
+
+  <div>
+    <h2>Login / Registrierung</h2>
+    <input id="email" placeholder="E-Mail" /><br/>
+    <input id="password" type="password" /><br/>
+    <button onclick="signUp()">Registrieren</button>
+    <button onclick="signIn()">Login</button>
+  </div>
+
+  <div id="app" style="display:none;">
+    <h2>📝 Trainingseintrag</h2>
+    <input type="number" id="gewicht" placeholder="Gewicht (kg)" /><br/>
+    <input type="number" id="strecke" placeholder="Strecke (km)" /><br/>
+    <input type="number" id="schwierigkeit" placeholder="Schwierigkeit (1–16)" /><br/>
+    <button onclick="eintragen()">Eintragen</button>
+
+    <h2>🎯 Zielgewicht</h2>
+    <input type="number" id="zielgewicht" placeholder="Mein Zielgewicht" /><br/>
+    <button onclick="zielSpeichern()">Ziel speichern</button>
+
+    <h2>📊 Übersicht</h2>
+    <div id="tabelle"></div>
+  </div>
+
+  <pre id="status"></pre>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
